@@ -2,13 +2,29 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Pressable, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Modals from './src/components/Modals';
+import ModalConSwitch from './src/components/ModalConInput';
+import Modal3 from './src/components/Modal3';
 
-export default function App() {
+
+const  App = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+  const [showModal3, setShowModal3] = useState(false);
+
 
   const abrirModal = async () => {
     console.log(1)
     setShowModal(true);
+    console.log(showModal)
+  }
+  const abrirModal2 = async () => {
+    console.log(1)
+    setShowModal2(true);
+    console.log(showModal)
+  }
+  const abrirModal3 = async () => {
+    console.log(1)
+    setShowModal3(true);
     console.log(showModal)
   }
 
@@ -18,18 +34,40 @@ export default function App() {
         <Text>Press Me</Text> 
       </TouchableOpacity>
       {showModal ? (
-        <>
+      <>
       <Modals setShowModal={setShowModal}/>
-      <Text>Messi</Text>
+      {/* <Text>Messi</Text> */}
       </>
       ): (
-        <Text>Hola</Text>
+        <></>
+      )}
+{/* modal2 */}
+      <TouchableOpacity style={styles.margin} onPress={() => abrirModal2()}>
+        <Text>Modal con switch</Text> 
+      </TouchableOpacity>
+      {showModal2 ? (
+      <>
+      <ModalConSwitch setShowModal2={setShowModal2}/>
+      </>
+      ): (
+        <></>
+      )}
+      {/* modal3 */}
+      <TouchableOpacity style={styles.margin} onPress={() => abrirModal3()}>
+        <Text>Modal 3</Text> 
+      </TouchableOpacity>
+      {showModal3 ? (
+      <>
+      <Modal3 setShowModal3={setShowModal3}/>
+      </>
+      ): (
+        <></>
       )}
     </SafeAreaView>
     
   );
 }
-
+export default  App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -37,4 +75,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  margin: {
+    marginTop: 12,
+  }
 });
