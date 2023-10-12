@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Pressable, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Pressable, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Modals from './src/components/Modals';
 import ModalConSwitch from './src/components/ModalConInput';
 import Modal3 from './src/components/Modal3';
@@ -26,6 +26,10 @@ const  App = () => {
     console.log(1)
     setShowModal3(true);
     console.log(showModal)
+  }
+
+  const mostrarAlert = async () => {
+    Alert.alert("Aqui va el titulo", "Aqui va la descripción")
   }
 
   return (
@@ -63,6 +67,10 @@ const  App = () => {
       ): (
         <></>
       )}
+
+      <TouchableOpacity style={styles.margin} onPress={() => mostrarAlert()}>
+        <Text>Alert</Text>
+      </TouchableOpacity>
     </SafeAreaView>
     
   );

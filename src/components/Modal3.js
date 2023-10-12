@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
-import { Modal, Text, TouchableOpacity, View, Alert,StyleSheet } from 'react-native';
+import { Modal, Text, TouchableOpacity, View, Alert,StyleSheet, SafeAreaView, Pressable } from 'react-native';
 
-export default function Modal3({setShowModal}) {
+const Modal3 = ({setShowModal3}) => {
   //const [modalVisible, setModalVisible] = useState(false);
 
   const modalHeader=(
@@ -22,12 +22,15 @@ export default function Modal3({setShowModal}) {
       <View style={styles.divider}></View>
       <View style={{flexDirection:"row-reverse",margin:10}}>
         <TouchableOpacity style={{...styles.actions,backgroundColor:"#db2828"}} 
-          onPress={() => {
-            setShowModal(true);
-          }}>
+          onPress={() => 
+            setShowModal3(false)
+          }>
           <Text style={styles.actionText}>No</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{...styles.actions,backgroundColor:"#21ba45"}}>
+        <TouchableOpacity style={{...styles.actions,backgroundColor:"#21ba45"}}
+          onPress={() => 
+            setShowModal3(false)
+          }>
           <Text style={styles.actionText}>Yes</Text>
         </TouchableOpacity>
       </View>
@@ -58,19 +61,52 @@ export default function Modal3({setShowModal}) {
 )
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView>
       
-      {modal}
+    <Modal
+      transparent={false}
+      visible={true}
+      onRequestClose={() => {
+        Alert.alert('Modal has been closed.');
+      }}>
+      <View style={styles.modal}>
+        <View>
+        <View style={styles.modalHeader}>
+        <Text style={styles.title}>Delete Your Account</Text>
+        <View style={styles.divider}></View>
+      </View>
 
-      <TouchableOpacity
-        onPress={() => {
-          setShowModal(true);
-        }}>
-        <Text>Show Modal</Text>
-      </TouchableOpacity>
-    </View>
+        <View style={styles.modalBody}>
+        <Text style={styles.bodyText}>Are you sure you want to delete your account ?</Text>
+        </View>
+        <View style={styles.modalFooter}>
+          <View style={styles.divider}></View>
+          <View style={{flexDirection:"row-reverse",margin:10}}>
+            <Pressable style={{...styles.actions,backgroundColor:"#db2828"}} 
+              onPress={() => 
+                setShowModal3(false)
+              }>
+              <Text style={styles.actionText}>No</Text>
+            </Pressable>
+            <Pressable style={{...styles.actions,backgroundColor:"#21ba45"}}
+              onPress={() => 
+                setShowModal3(false)
+              }>
+              <Text style={styles.actionText}>Yes</Text>
+            </Pressable>
+          </View>
+        </View>
+        </View>
+      </View>
+    </Modal>
+
+    </SafeAreaView>
+
+   
   );
-}
+};
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -121,3 +157,5 @@ const styles = StyleSheet.create({
     color:"#fff"
   }
 });
+
+export default Modal3;
