@@ -34,7 +34,7 @@ const  App = () => {
 
   return (
     <SafeAreaView>
-      <TouchableOpacity onPress={() => abrirModal()}>
+      <TouchableOpacity onPress={() => abrirModal()} style={styles.Boton1}>
         <Text>Press Me</Text> 
       </TouchableOpacity>
       {showModal ? (
@@ -46,7 +46,7 @@ const  App = () => {
         <></>
       )}
 {/* modal2 */}
-      <TouchableOpacity style={styles.margin} onPress={() => abrirModal2()}>
+      <TouchableOpacity style={styles.Boton1} onPress={() => abrirModal2()} >
         <Text>Modal con switch</Text> 
       </TouchableOpacity>
       {showModal2 ? (
@@ -57,7 +57,7 @@ const  App = () => {
         <></>
       )}
       {/* modal3 */}
-      <TouchableOpacity style={styles.margin} onPress={() => abrirModal3()}>
+      <TouchableOpacity style={styles.Boton1} onPress={() => abrirModal3()}>
         <Text>Modal 3</Text> 
       </TouchableOpacity>
       {showModal3 ? (
@@ -68,7 +68,7 @@ const  App = () => {
         <></>
       )}
 
-      <TouchableOpacity style={styles.margin} onPress={() => mostrarAlert()}>
+      <TouchableOpacity style={styles.Boton2} onPress={() => mostrarAlert()}>
         <Text>Alert</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -83,7 +83,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  margin: {
-    marginTop: 12,
-  }
+  Boton1:{
+    marginTop: 80,
+    alignItems: 'center',
+    borderRadius: 15,
+    backgroundColor: '#AEDD2B',
+    paddingHorizontal: 1, 
+    paddingVertical: 20,
+  },
+  Boton2:{
+    marginTop: 80,
+    alignItems: 'center',
+       borderRadius: 15,
+    backgroundColor: 'red',
+    paddingHorizontal: 1,
+    paddingVertical: 20,
+  },
+
 });

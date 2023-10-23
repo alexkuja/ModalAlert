@@ -47,7 +47,7 @@ const Modal3 = ({setShowModal3}) => {
 
   const modal = (
     <Modal
-      transparent={false}
+      transparent={true}
       visible={true}
       onRequestClose={() => {
         Alert.alert('Modal has been closed.');
@@ -61,46 +61,9 @@ const Modal3 = ({setShowModal3}) => {
 )
 
   return (
-    <SafeAreaView>
-      
-    <Modal
-      transparent={false}
-      visible={true}
-      onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
-      }}>
-      <View style={styles.modal}>
-        <View>
-        <View style={styles.modalHeader}>
-        <Text style={styles.title}>Delete Your Account</Text>
-        <View style={styles.divider}></View>
-      </View>
-
-        <View style={styles.modalBody}>
-        <Text style={styles.bodyText}>Are you sure you want to delete your account ?</Text>
-        </View>
-        <View style={styles.modalFooter}>
-          <View style={styles.divider}></View>
-          <View style={{flexDirection:"row-reverse",margin:10}}>
-            <Pressable style={{...styles.actions,backgroundColor:"#db2828"}} 
-              onPress={() => 
-                setShowModal3(false)
-              }>
-              <Text style={styles.actionText}>No</Text>
-            </Pressable>
-            <Pressable style={{...styles.actions,backgroundColor:"#21ba45"}}
-              onPress={() => 
-                setShowModal3(false)
-              }>
-              <Text style={styles.actionText}>Yes</Text>
-            </Pressable>
-          </View>
-        </View>
-        </View>
-      </View>
-    </Modal>
-
-    </SafeAreaView>
+    <View style={styles.container}>
+      {modal}
+    </View>
 
    
   );
